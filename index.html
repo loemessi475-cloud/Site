@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+<meta charset="UTF-8">
+<title>My Stream</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet">
+</head>
+<body onload="checkAuth(); loadMovies();">
+
+<header>
+  <h1>My Stream</h1>
+  <input type="text" id="search" placeholder="חיפוש..." oninput="filterMovies()">
+</header>
+
+<div id="categories"></div>
+<div id="movies" class="grid"></div>
+
+<div id="playerModal" class="modal">
+  <video id="player" class="video-js vjs-big-play-centered" controls></video>
+</div>
+
+<script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+<script src="auth.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

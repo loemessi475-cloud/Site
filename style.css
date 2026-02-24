@@ -1,0 +1,12 @@
+body { background:#141414; color:white; font-family:Arial; margin:0 }
+header { padding:20px; display:flex; justify-content:space-between }
+input { padding:8px; border-radius:4px }
+.grid { display:grid; grid-template-columns:repeat(auto-fill,200px); gap:20px; padding:20px }
+.grid img { width:200px; border-radius:8px; cursor:pointer; transition:0.3s }
+.grid img:hover { transform:scale(1.08) }
+
+.modal { display:none; position:fixed; inset:0; background:black; align-items:center; justify-content:center }
+video { width:80% }
+
+.center { display:flex; justify-content:center; align-items:center; height:100vh }
+.login-box { background:#222; padding:30px; border-radius:8px }

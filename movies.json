@@ -1,0 +1,16 @@
+{
+  "movies": [
+    {
+      "title": "הסרט שלי",
+      "category": "אקשן",
+      "poster": "https://via.placeholder.com/300x450",
+      "video": "https://s3.wasabisys.com/bucket/movie1.mp4"
+    },
+    {
+      "title": "דרמה טובה",
+      "category": "דרמה",
+      "poster": "https://via.placeholder.com/300x450",
+      "video": "https://s3.wasabisys.com/bucket/movie2.mp4"
+    }
+  ]
+}
