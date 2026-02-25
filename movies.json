@@ -1,16 +1,26 @@
 {
   "movies": [
     {
-      "title": "מטכליסטים",
-      "category": "אקשן",
-      "poster": "Matcalistim.jpg",
-      "video": "https://s3.eu-central-2.wasabisys.com/israeli/Matcalistim.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=M6DFLD1UKI4GVLHLCOBZ%2F20260224%2Feu-central-2%2Fs3%2Faws4_request&X-Amz-Date=20260224T135752Z&X-Amz-Expires=43200&X-Amz-Signature=4f3429c36648d3587454352971e8bcede3a7e807e71fe4b57c8019b29f0d0b78&X-Amz-SignedHeaders=host&x-id=GetObject"
-    },
+      "title": "סרט לדוגמה",
+      "poster": "/posters/movie1.jpg",
+      "video": "https://example.com/movie1.mp4"
+    }
+  ],
+  "series": [
     {
-      "title": "דרמה טובה",
-      "category": "דרמה",
-      "poster": "https://via.placeholder.com/300x450",
-      "video": "https://s3.wasabisys.com/bucket/movie2.mp4"
+      "title": "מטכליסטים",
+      "poster": "/posters/matkalistim.jpg",
+      "seasons": [
+        {
+          "season": 1,
+          "episodes": [
+            {
+              "title": "פרק 1",
+              "video": https://s3.eu-central-2.wasabisys.com/israeli/Matcalistim.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=M6DFLD1UKI4GVLHLCOBZ%2F20260224%2Feu-central-2%2Fs3%2Faws4_request&X-Amz-Date=20260224T135752Z&X-Amz-Expires=43200&X-Amz-Signature=4f3429c36648d3587454352971e8bcede3a7e807e71fe4b57c8019b29f0d0b78&X-Amz-SignedHeaders=host&x-id=GetObject"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
