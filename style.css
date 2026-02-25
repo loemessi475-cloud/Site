@@ -1,12 +1,110 @@
-body { background:#141414; color:white; font-family:Arial; margin:0 }
-header { padding:20px; display:flex; justify-content:space-between }
-input { padding:8px; border-radius:4px }
-.grid { display:grid; grid-template-columns:repeat(auto-fill,200px); gap:20px; padding:20px }
-.grid img { width:200px; border-radius:8px; cursor:pointer; transition:0.3s }
-.grid img:hover { transform:scale(1.08) }
+body {
+  background:#141414;
+  color:white;
+  font-family:Arial;
+  margin:0;
+}
 
-.modal { display:none; position:fixed; inset:0; background:black; align-items:center; justify-content:center }
-video { width:80% }
+header {
+  display:flex;
+  justify-content:space-between;
+  padding:20px;
+}
 
-.center { display:flex; justify-content:center; align-items:center; height:100vh }
-.login-box { background:#222; padding:30px; border-radius:8px }
+input {
+  padding:8px;
+  border-radius:6px;
+  border:none;
+}
+
+h2 {
+  padding:0 20px;
+}
+
+#hero {
+  height:60vh;
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:flex-end;
+  padding:40px;
+}
+
+.hero-content {
+  background:linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  padding:20px;
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,180px);
+  gap:20px;
+  padding:20px;
+}
+
+.card {
+  position:relative;
+}
+
+.card img {
+  width:180px;
+  border-radius:10px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.card img:hover {
+  transform:scale(1.08);
+}
+
+.channel-group {
+  padding:20px;
+}
+
+.channel-title {
+  font-weight:bold;
+  margin:10px 0;
+}
+
+.channel-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,160px);
+  gap:15px;
+}
+
+.channel-card {
+  background:#222;
+  padding:15px;
+  border-radius:8px;
+  cursor:pointer;
+  text-align:center;
+  transition:0.3s;
+}
+
+.channel-card:hover {
+  background:#e50914;
+}
+
+button {
+  padding:8px 12px;
+  margin:5px;
+  background:#e50914;
+  border:none;
+  border-radius:6px;
+  color:white;
+  cursor:pointer;
+}
+
+.modal {
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.9);
+  justify-content:center;
+  align-items:center;
+}
+
+video {
+  width:80%;
+  max-height:80%;
+}
