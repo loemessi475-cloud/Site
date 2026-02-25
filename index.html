@@ -2,33 +2,130 @@
 <html lang="he">
 <head>
 <meta charset="UTF-8">
-<title>My Stream</title>
-<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stream</title>
+
+<link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+<script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+
+<style>
+body{
+  margin:0;
+  background:#0f0f0f;
+  color:white;
+  font-family:Arial;
+}
+
+header{
+  padding:15px;
+  font-size:20px;
+  font-weight:bold;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(130px,1fr));
+  gap:15px;
+  padding:15px;
+}
+
+.card img{
+  width:100%;
+  border-radius:12px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.card img:hover{
+  transform:scale(1.05);
+}
+
+#playerModal{
+  position:fixed;
+  inset:0;
+  background:black;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+}
+
+.player-wrapper{
+  width:100%;
+  max-width:900px;
+}
+
+.close-btn{
+  position:absolute;
+  top:15px;
+  right:15px;
+  font-size:20px;
+  cursor:pointer;
+}
+</style>
 </head>
 
-<body onload="init()">
+<body>
 
-<header>
-  <h1>My Stream</h1>
-  <input type="text" id="search" placeholder="חיפוש..." oninput="searchAll()">
-</header>
+<header>🎬 My Stream</header>
 
-<div id="hero"></div>
+<div class="grid" id="movies"></div>
 
-<h2>🎬 סרטים</h2>
-<div id="movies" class="grid"></div>
-
-<h2>📺 סדרות</h2>
-<div id="series" class="grid"></div>
-
-<h2>📡 ערוצים חיים</h2>
-<div id="channelsContainer"></div>
-
-<div id="playerModal" class="modal" onclick="closePlayer()">
-  <video id="videoPlayer" controls></video>
+<div id="playerModal">
+  <div class="close-btn" onclick="closePlayer()">✖</div>
+  <div class="player-wrapper">
+    <video id="player" playsinline controls></video>
+  </div>
 </div>
 
-<script src="app.js"></script>
+<script>
+const movies = [
+  {
+    title:"סרט לדוגמה",
+    poster:"https://via.placeholder.com/300x450",
+    url:"https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"
+  }
+];
+
+const container = document.getElementById("movies");
+
+movies.forEach(m=>{
+  container.innerHTML += `
+    <div class="card">
+      <img src="${m.poster}" onclick="play('${m.url}')">
+    </div>
+  `;
+});
+
+let player;
+
+function play(url){
+  const modal = document.getElementById("playerModal");
+  modal.style.display="flex";
+
+  const video = document.getElementById("player");
+
+  if (player) player.destroy();
+
+  player = new Plyr(video);
+
+  if (Hls.isSupported() && url.includes(".m3u8")){
+    const hls = new Hls();
+    hls.loadSource(url);
+    hls.attachMedia(video);
+  } else {
+    video.src = url;
+  }
+
+  video.play();
+}
+
+function closePlayer(){
+  document.getElementById("playerModal").style.display="none";
+  if(player) player.pause();
+}
+</script>
+
 </body>
 </html>
